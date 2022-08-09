@@ -6,7 +6,7 @@
       </h1>
     </v-row>
     <v-row class="h-screen">
-      <v-col cols="12" sm="6" class="flex items-center justify-end">
+      <v-col class="flex items-center justify-end">
         <div elevation="4">
           <v-img
             width="50vw"
@@ -25,7 +25,7 @@
           ></v-img>
         </div>
       </v-col>
-      <v-col cols="12" sm="6" class="flex items-center justify-start">
+      <v-col class="flex items-center justify-start">
         <p class="pe-13 me-15">
           <!-- eslint-disable-next-line -->
           Para Claudio Rodríguez, la pintura deviene en actividad sanadora, en

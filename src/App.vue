@@ -4,16 +4,42 @@
       <v-list dense>
         <v-subheader>Claudio Rodríguez</v-subheader>
         <v-list-item-group v-model="selectedItem" color="primary">
-          <v-list-item v-for="(item, i) in items" :key="i">
+          <v-list-item to="/">
             <v-list-item-icon>
-              <v-icon v-text="item.icon"></v-icon>
+              <v-icon v-text="'mdi-home'"></v-icon>
             </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
-            </v-list-item-content>
+            <v-list-item-content prepend-icon="mdi-home"
+              ><v-list-item-title v-text="'Home'"></v-list-item-title
+            ></v-list-item-content>
           </v-list-item>
+          <v-list-item to="/about">
+            <v-list-item-icon>
+              <v-icon v-text="'mdi-account'"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content
+              ><v-list-item-title v-text="'Sobre Claudio'"></v-list-item-title
+            ></v-list-item-content>
+          </v-list-item>
+          <v-list-group prepend-icon="mdi-book" no-action dark>
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title>Catálogos y libros</v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+              v-for="(child, i) in $store.state.catalogs"
+              :key="i"
+              :to="child.fullPath"
+            >
+              <v-list-item-content v-if="child">
+                <v-list-item-title v-text="child.name"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
         </v-list-item-group>
       </v-list>
+      <v-list dense> </v-list>
     </v-navigation-drawer>
 
     <v-app-bar
@@ -21,7 +47,11 @@
       dense
       fixed
       :dark="true"
-      :color="transparentNav < 350 ? 'transparent' : 'dark-grey'"
+      :color="
+        transparentNav < 350 && $route.name === 'home'
+          ? 'transparent'
+          : 'dark-grey'
+      "
       id="app-bar"
     >
       <v-toolbar-title class="font-oswald text-2xl font-semibold"
@@ -46,9 +76,16 @@ export default {
     drawer: false,
     selectedItem: 1,
     items: [
-      { text: "Real-Time", icon: "mdi-clock" },
-      { text: "Audience", icon: "mdi-account" },
-      { text: "Conversions", icon: "mdi-flag" },
+      { text: "Home", icon: "mdi-home", route: "/" },
+      { text: "Sobre Claudio", icon: "mdi-account", route: "about" },
+      { text: "Catálogos y libros", icon: "mdi-book", route: "catalogs" },
+    ],
+    itemss: [
+      {
+        action: "mdi-ticket",
+        items: [{ title: "List Item" }],
+        title: "Attractions",
+      },
     ],
     transparentNav: 0,
   }),
@@ -56,10 +93,11 @@ export default {
     onScroll() {
       this.transparentNav = window.scrollY;
     },
-    ...mapActions(["getMetaData"]),
+    ...mapActions(["getMetaData", "listAllCatalogs"]),
   },
   created() {
     this.getMetaData();
+    this.listAllCatalogs();
   },
 };
 </script>

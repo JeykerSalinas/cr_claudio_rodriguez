@@ -7,11 +7,15 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     reviews: [],
+    catalogs: [],
   },
   getters: {},
   mutations: {
     SET_REVIEWS_URLS(state, payload) {
       state.reviews.push(payload);
+    },
+    SET_CATALOGS_DIRECTORIES(state, payload) {
+      state.catalogs = payload;
     },
   },
   actions: {
@@ -26,6 +30,23 @@ export default new Vuex.Store({
               })
               .catch((err) => console.log(err));
           });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    async listAllCatalogs({ commit }) {
+      const listRef = ref(storage, "/catalogos_y_libros");
+      listAll(listRef)
+        .then((res) => {
+          let myArr = res.prefixes.map((item) => {
+            let myObj = {};
+            myObj.name = item.name;
+            myObj.path = item.fullPath;
+            return myObj;
+          });
+
+          commit("SET_CATALOGS_DIRECTORIES", myArr);
         })
         .catch((error) => {
           console.log(error);
