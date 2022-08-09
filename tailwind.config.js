@@ -4,6 +4,7 @@ const colors = {
   colortest: "#fb8500",
   transparent: "transparent",
   darkgrey: "#403d39",
+  softwhite: "#f5f4ee",
 };
 
 module.exports = {
