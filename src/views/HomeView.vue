@@ -1,49 +1,49 @@
 <template>
-  <v-container align-center fluid>
-    <v-row id="presentation" :align="'center'" justify="center">
-      <h1 class="pb-5 display-2 white--text">
-        <span class="oswald text-7xl">Claudio Rodríguez</span>
-      </h1>
-    </v-row>
-    <v-row class="h-screen">
-      <v-col class="flex items-center justify-end">
-        <div elevation="4">
-          <v-img
-            width="50vw"
-            max-width="600px"
-            min-width="300px"
-            src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/first.png?alt=media&token=e8ac4ab1-59fa-48fa-84cf-3200f725a62b"
-            class="elevation-10"
-          >
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row> </template
-          ></v-img>
-        </div>
-      </v-col>
-      <v-col class="flex items-center justify-start">
-        <p class="pe-13 me-15">
-          <!-- eslint-disable-next-line -->
-          Para Claudio Rodríguez, la pintura deviene en actividad sanadora, en
-          una terapéutica que, a la manera del psicoanálisis, busca en el
-          inconsciente el origen de la pérdida del objeto.
-          <br />
-          <em class="font-italic"
-            >“Cada cuadro que hago es la investigación de mí mismo, es un
-            conocimiento profundo del yo, es un sentimiento y un pensamiento
-            profundo y doloroso de nosotros mismos, yo mismo yo.”</em
-          >
-        </p>
-      </v-col>
-    </v-row>
-    <v-row class="bg-darkgrey">
-      <ReviewsCarousel></ReviewsCarousel>
-    </v-row>
-  </v-container>
+  <div>
+    <v-container>
+      <v-row id="presentation" :align="'center'" justify="center">
+        <h1 class="pb-5 display-2 white--text">
+          <span class="oswald text-7xl">Claudio Rodríguez</span>
+        </h1>
+      </v-row>
+      <v-row class="h-screen">
+        <v-col cols="6" class="d-flex items-center justify-end">
+          <div elevation="4">
+            <v-img
+              width="40vw"
+              src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/first.png?alt=media&token=e8ac4ab1-59fa-48fa-84cf-3200f725a62b"
+              class="elevation-10"
+            >
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular
+                    indeterminate
+                    color="grey lighten-5"
+                  ></v-progress-circular>
+                </v-row> </template
+            ></v-img>
+          </div>
+        </v-col>
+        <v-col cols="6" class="d-flex items-center justify-start">
+          <p class="pe-13 me-15">
+            <!-- eslint-disable-next-line -->
+            Para Claudio Rodríguez, la pintura deviene en actividad sanadora, en
+            una terapéutica que, a la manera del psicoanálisis, busca en el
+            inconsciente el origen de la pérdida del objeto.
+            <br />
+            <em class="font-italic"
+              >“Cada cuadro que hago es la investigación de mí mismo, es un
+              conocimiento profundo del yo, es un sentimiento y un pensamiento
+              profundo y doloroso de nosotros mismos, yo mismo yo.”</em
+            >
+          </p>
+        </v-col>
+      </v-row>
+      <v-row class="bg-darkgrey">
+        <ReviewsCarousel></ReviewsCarousel>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>

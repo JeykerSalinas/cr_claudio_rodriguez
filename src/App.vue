@@ -89,7 +89,7 @@
       ></v-app-bar-nav-icon>
     </v-app-bar>
 
-    <v-main class="bg-softwhite pt-0">
+    <v-main class="bg-softwhite">
       <router-view></router-view>
     </v-main>
   </v-app>

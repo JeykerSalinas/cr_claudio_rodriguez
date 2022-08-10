@@ -1,27 +1,66 @@
 <template>
   <v-container class="px-20 mt-15">
     <v-row>
+      <v-col>
+        <p class="oswald text-6xl text-semibold">Tablitas</p>
+        <p class="oswald text-xl text-semibold">
+          Claudio ha pintado sobre los más variados soportes. Papel, lienzo,
+          yute, tela de cortinas, madera, vidrio, afiches, etc. La serie
+          “Tablitas”, de la cual mostramos algunas, las pintó Claudio sobre
+          retazos de machimbrado que sobraron de la construcción del sobre techo
+          del apartamento familiar, tal cual iba consiguiendo las tablitas, sin
+          recortarlas ni haciéndole otra mejora. Todas de 8 centímetros de alto,
+          pero de ancho distinto. En esta galería el ancho va desde los 27 hasta
+          los 54 centímetros.
+        </p>
+      </v-col>
       <v-col
         v-for="(img, i) in urls"
         :key="i"
         class="d-flex child-flex"
         cols="12"
       >
-        <img :id="img" :src="img" aspect-ratio="1" class="grey lighten-2" />
-        <!-- <template v-slot:placeholder>
-            <v-row class="fill-height ma-0" align="center" justify="center">
-              <v-progress-circular
-                indeterminate
-                color="grey lighten-5"
-              ></v-progress-circular>
-            </v-row>
+        <v-dialog dark v-model="dialog" width="100vw" height="100vh">
+          <template v-slot:activator="{ on, attrs }">
+            <div v-bind="attrs" v-on="on" @click="handleClick(img)">
+              <img
+                :id="img"
+                :src="img"
+                aspect-ratio="1"
+                class="grey lighten-2"
+              />
+            </div>
           </template>
-        </img> -->
+          <v-card class="d-flex align-center">
+            <img :src="dialogImg" alt="" />
+          </v-card>
+        </v-dialog>
+        <!-- <img :id="img" :src="img" aspect-ratio="1" class="grey lighten-2" /> -->
       </v-col>
     </v-row>
     <v-row>
-      <v-col v-for="(img, i) in urlstall" :key="i">
-        <img :src="img" alt="" />
+      <v-col class="px-1" v-for="(img, i) in urlstall" :key="i">
+        <v-dialog fullscreen dark v-model="dialog">
+          <template v-slot:activator="{ on, attrs }">
+            <div v-bind="attrs" v-on="on" @click="handleClick(img)">
+              <div
+                class="bg-cover bg-no-repeat bg-center"
+                :style="{
+                  'background-image': 'url(' + img + ')',
+                  width: '100%',
+                  height: '600px',
+                }"
+              >
+                <!-- <img :src="img" alt="" /> -->
+              </div>
+            </div>
+          </template>
+          <v-card>
+            <div class="py-10">
+              <v-img contain :src="dialogImg" max-height="90vh"></v-img>
+            </div>
+          </v-card>
+        </v-dialog>
       </v-col>
     </v-row>
   </v-container>
@@ -62,9 +101,15 @@ export default {
         "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT052N660L34.jpg?alt=media&token=bb95c2ed-0dea-41a7-80e7-56f3557f4a98",
         "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT054N668L34.jpg?alt=media&token=e4448d89-8e9c-4967-84a7-966c461e8a19",
       ],
+      dialogImg: "",
+      dialog: false,
     };
   },
-
+  methods: {
+    handleClick(img) {
+      this.dialogImg = img;
+    },
+  },
   computed: {
     ...mapState(["galery"]),
     currUrls() {
