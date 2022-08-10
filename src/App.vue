@@ -25,17 +25,24 @@
           <v-list-group prepend-icon="mdi-book" no-action dark>
             <template v-slot:activator>
               <v-list-item-content>
-                <v-list-item-title>Galerías</v-list-item-title>
+                <v-list-item-title>Galerías de cuadros</v-list-item-title>
               </v-list-item-content>
             </template>
-
-            <v-list-item
-              v-for="(child, i) in $store.state.catalogs.slice(0, 3)"
-              :key="i"
-              :to="'/catalogs/' + child.name"
-            >
+            <v-list-item to="/galery/tables">
               <v-list-item-content>
-                <v-list-item-title v-text="child.name"></v-list-item-title>
+                <v-list-item-title v-text="'Tablitas'"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item to="/galery/figuratives">
+              <v-list-item-content>
+                <v-list-item-title v-text="'Figurativos'"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item to="/galery/nofiguratives">
+              <v-list-item-content>
+                <v-list-item-title
+                  v-text="'No Figurativos'"
+                ></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
           </v-list-group>
@@ -100,11 +107,12 @@ export default {
     onScroll() {
       this.transparentNav = window.scrollY;
     },
-    ...mapActions(["getMetaData", "listAllCatalogs"]),
+    ...mapActions(["getMetaData", "listAllCatalogs", "getGallery"]),
   },
   created() {
     this.getMetaData();
     this.listAllCatalogs();
+    this.getGallery();
   },
 };
 </script>

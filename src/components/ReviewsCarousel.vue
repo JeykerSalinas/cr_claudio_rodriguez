@@ -79,6 +79,9 @@ export default {
     setModel() {
       this.model = Math.floor(Math.random() * this.reviews.length);
     },
+    on() {
+      console.log("ONN");
+    },
   },
   created() {
     this.setModel();

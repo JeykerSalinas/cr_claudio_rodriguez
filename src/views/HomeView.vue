@@ -1,6 +1,6 @@
 <template>
-  <v-container align-center fluid class="">
-    <v-row id="presentation" class="" :align="'center'" justify="center">
+  <v-container align-center fluid>
+    <v-row id="presentation" :align="'center'" justify="center">
       <h1 class="pb-5 display-2 white--text">
         <span class="oswald text-7xl">Claudio Rodríguez</span>
       </h1>

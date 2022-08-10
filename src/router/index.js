@@ -28,6 +28,37 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "catalogs" */ "../views/CatalogsView.vue"),
   },
+  {
+    path: "/galery/figuratives",
+    name: "figuratives",
+    // route level code-splitting
+    // this generates a separate chunk (catalogs.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "Figuratives" */ "../views/FigurativesView.vue"
+      ),
+  },
+  {
+    path: "/galery/nofiguratives",
+    name: "nofiguratives",
+    // route level code-splitting
+    // this generates a separate chunk (catalogs.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "noFiguratives" */ "../views/NofigurativesView.vue"
+      ),
+  },
+  {
+    path: "/galery/tables",
+    name: "tables",
+    // route level code-splitting
+    // this generates a separate chunk (catalogs.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "Tables" */ "../views/TablesView.vue"),
+  },
 ];
 
 const router = new VueRouter({

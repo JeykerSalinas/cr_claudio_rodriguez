@@ -1,27 +1,36 @@
 <template>
-  <v-container id="catalogs">
-    <h1>{{ $route.params.id }}</h1>
-    <p>{{}}</p>
+  <v-container id="catalogs" class="px-20">
+    <p class="oswald text-6xl text-semibold">{{ currCatalog?.name }}</p>
+    <p class="oswald text-2xl text-semibold">Catálogos y Libros</p>
+    <ImageGallery :urlArr="currCatalog.url"></ImageGallery>
   </v-container>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import ImageGallery from "@/components/ImageGallery.vue";
 export default {
   name: "CatalogsView",
   data() {
     return {
-      currImages: [],
+      dialog: false,
+      dialogImg: "",
     };
   },
   methods: {
-    getImages() {
-      console.log(this.$store.state.catalogs);
+    handleClick(url) {
+      this.dialogImg = url;
     },
   },
-  created() {
-    this.getImages();
+  computed: {
+    ...mapGetters(["getCatalogsUrls"]),
+    currCatalog() {
+      return this.getCatalogsUrls?.find(
+        (catalog) => catalog.name === this.$route.params.id
+      );
+    },
   },
-  computed: {},
+  components: { ImageGallery },
 };
 </script>
 
