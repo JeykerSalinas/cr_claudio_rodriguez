@@ -2,7 +2,9 @@
   <v-app id="inspire" v-scroll="onScroll">
     <v-navigation-drawer class="bg-dark-grey" dark v-model="drawer" app right>
       <v-list dense>
-        <v-subheader>Claudio Rodríguez</v-subheader>
+        <v-subheader
+          ><span class="oswald text-3xl">Claudio Rodríguez</span></v-subheader
+        >
         <v-list-item-group v-model="selectedItem" color="primary">
           <v-list-item to="/">
             <v-list-item-icon>
@@ -23,6 +25,23 @@
           <v-list-group prepend-icon="mdi-book" no-action dark>
             <template v-slot:activator>
               <v-list-item-content>
+                <v-list-item-title>Galerías</v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+              v-for="(child, i) in $store.state.catalogs.slice(0, 3)"
+              :key="i"
+              :to="'/catalogs/' + child.name"
+            >
+              <v-list-item-content>
+                <v-list-item-title v-text="child.name"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
+          <v-list-group prepend-icon="mdi-book" no-action dark>
+            <template v-slot:activator>
+              <v-list-item-content>
                 <v-list-item-title>Catálogos y libros</v-list-item-title>
               </v-list-item-content>
             </template>
@@ -30,9 +49,9 @@
             <v-list-item
               v-for="(child, i) in $store.state.catalogs"
               :key="i"
-              :to="child.fullPath"
+              :to="'/catalogs/' + child.name"
             >
-              <v-list-item-content v-if="child">
+              <v-list-item-content>
                 <v-list-item-title v-text="child.name"></v-list-item-title>
               </v-list-item-content>
             </v-list-item>
@@ -75,18 +94,6 @@ export default {
   data: () => ({
     drawer: false,
     selectedItem: 1,
-    items: [
-      { text: "Home", icon: "mdi-home", route: "/" },
-      { text: "Sobre Claudio", icon: "mdi-account", route: "about" },
-      { text: "Catálogos y libros", icon: "mdi-book", route: "catalogs" },
-    ],
-    itemss: [
-      {
-        action: "mdi-ticket",
-        items: [{ title: "List Item" }],
-        title: "Attractions",
-      },
-    ],
     transparentNav: 0,
   }),
   methods: {
