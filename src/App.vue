@@ -22,6 +22,22 @@
               ><v-list-item-title v-text="'Sobre Claudio'"></v-list-item-title
             ></v-list-item-content>
           </v-list-item>
+          <v-list-item to="/reviews">
+            <v-list-item-icon>
+              <v-icon v-text="'mdi-newspaper'"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content
+              ><v-list-item-title v-text="'Reseñas'"></v-list-item-title
+            ></v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/collections">
+            <v-list-item-icon>
+              <v-icon v-text="'mdi-newspaper'"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content
+              ><v-list-item-title v-text="'Colecciones'"></v-list-item-title
+            ></v-list-item-content>
+          </v-list-item>
           <v-list-group prepend-icon="mdi-book" no-action dark>
             <template v-slot:activator>
               <v-list-item-content>
@@ -92,6 +108,18 @@
     <v-main class="bg-softwhite">
       <router-view></router-view>
     </v-main>
+    <v-footer dense dark color="darkgrey" elevation="21" class="py-0">
+      <v-card dense tile width="100%" class="text-center">
+        <v-card-text class="py-0">
+          <v-btn class="" icon href="https://www.instagram.com/claudiomerida/">
+            <v-icon size="18px"> mdi-instagram </v-icon>
+          </v-btn>
+          <v-btn class="" icon to="/contact">
+            <v-icon size="18px"> mdi-email </v-icon>
+          </v-btn>
+        </v-card-text>
+      </v-card>
+    </v-footer>
   </v-app>
 </template>
 

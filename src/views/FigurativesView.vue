@@ -1,6 +1,7 @@
 <template>
   <v-container class="px-20 mt-15">
     <p class="oswald text-6xl text-semibold">Cuadros Figurativos</p>
+    <p class="oswald text-2xl text-semibold">Galería de cuadros</p>
     <ImageGallery :urlArr="currUrls.url"></ImageGallery>
   </v-container>
 </template>

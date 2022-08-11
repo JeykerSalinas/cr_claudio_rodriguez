@@ -59,6 +59,26 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "Tables" */ "../views/TablesView.vue"),
   },
+  {
+    path: "/reviews",
+    name: "reviews",
+    // route level code-splitting
+    // this generates a separate chunk (catalogs.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "Reviews" */ "../views/ReviewsView.vue"),
+  },
+  {
+    path: "/collections",
+    name: "collections",
+    // route level code-splitting
+    // this generates a separate chunk (catalogs.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(
+        /* webpackChunkName: "Colections" */ "../views/CollectionsView.vue"
+      ),
+  },
 ];
 
 const router = new VueRouter({

@@ -1,7 +1,6 @@
 <template>
-  <v-container fluid class="mx-auto pt-10 px-15" elevation="8">
-    <h2 class="white--text oswald text-center text-3xl pb-6">Reseñas</h2>
-    <v-container color="transparent">
+  <v-container fluid class="mx-auto" elevation="8">
+    <v-container class="bg-darkgrey rounded py-15">
       <v-row class="transparent fill-height" align="center" justify="center">
         <v-dialog v-model="dialog" width="100vw">
           <template v-slot:activator="{ on, attrs }">
@@ -22,11 +21,13 @@
                 </v-row> </template
             ></v-img>
           </template>
-          <v-card><v-img :src="reviews[model]" contain></v-img></v-card>
+          <v-card elevation="4"
+            ><v-img :src="reviews[model]" contain></v-img
+          ></v-card>
         </v-dialog>
       </v-row>
     </v-container>
-    <v-slide-group v-model="model" mandatory class="pa-4" show-arrows dark>
+    <v-slide-group v-model="model" mandatory class="pa-4" show-arrows>
       <v-slide-item
         v-for="(review, n) in reviews"
         :key="n"
