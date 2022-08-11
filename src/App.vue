@@ -32,7 +32,7 @@
           </v-list-item>
           <v-list-item to="/collections">
             <v-list-item-icon>
-              <v-icon v-text="'mdi-newspaper'"></v-icon>
+              <v-icon v-text="'mdi-domain'"></v-icon>
             </v-list-item-icon>
             <v-list-item-content
               ><v-list-item-title v-text="'Colecciones'"></v-list-item-title
@@ -41,7 +41,7 @@
           <v-list-group prepend-icon="mdi-book" no-action dark>
             <template v-slot:activator>
               <v-list-item-content>
-                <v-list-item-title>Galerías de cuadros</v-list-item-title>
+                <v-list-item-title>Galerías de pinturas</v-list-item-title>
               </v-list-item-content>
             </template>
             <v-list-item to="/galery/tables">
@@ -80,6 +80,14 @@
             </v-list-item>
           </v-list-group>
         </v-list-item-group>
+        <v-list-item to="/contact">
+          <v-list-item-icon>
+            <v-icon v-text="'mdi-message-text'"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content
+            ><v-list-item-title v-text="'Contacto'"></v-list-item-title
+          ></v-list-item-content>
+        </v-list-item>
       </v-list>
       <v-list dense> </v-list>
     </v-navigation-drawer>
