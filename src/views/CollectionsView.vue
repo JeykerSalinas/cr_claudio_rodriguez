@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="mt-15">
     <p class="oswald text-6xl text-semibold">Colecciones</p>
     <p class="oswald text-2xl text-semibold">
       Selección de colecciones públicas y privadas que albergan sus obras
@@ -51,7 +51,7 @@
         <div>
           <v-img
             height="450px"
-            src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/figuratives%2FFFH357.jpg?alt=media&token=bb95190b-0c3c-4015-949e-8c03aa61b540"
+            src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/no_figuratives%2FHHPa800.jpg?alt=media&token=6420cce6-a2ac-4ccf-a97a-22d70975895e"
             class="elevation-10 mt-5"
           >
             <template v-slot:placeholder>

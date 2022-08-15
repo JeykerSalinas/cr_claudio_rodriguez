@@ -94,7 +94,6 @@
 
     <v-app-bar
       app
-      dense
       fixed
       :dark="true"
       :color="
@@ -104,16 +103,15 @@
       "
       id="app-bar"
     >
-      <v-toolbar-title class="font-oswald text-3xl font-semibold"
+      <v-toolbar-title class="font-oswald text-4xl font-semibold"
         >CR</v-toolbar-title
       >
-      <v-app-bar-nav-icon
-        @click="drawer = !drawer"
-        class="ms-auto"
-      ></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer" class="ms-auto">
+        <v-icon v-text="'mdi-menu'" size="40"></v-icon>
+      </v-app-bar-nav-icon>
     </v-app-bar>
 
-    <v-main class="bg-softwhite">
+    <v-main class="bg-softwhite pt-12">
       <router-view></router-view>
     </v-main>
     <v-footer dense dark color="darkgrey" elevation="21" class="py-0">

@@ -17,21 +17,21 @@
       <v-col
         v-for="(img, i) in urls"
         :key="i"
-        class="d-flex child-flex"
+        class="d-flex child-flex my-5"
         cols="12"
       >
-        <v-dialog dark v-model="dialog" width="100vw" height="100vh">
-          <template v-slot:activator="{ on, attrs }">
-            <div v-bind="attrs" v-on="on" @click="handleClick(img)">
-              <img
-                :id="img"
-                :src="img"
-                aspect-ratio="1"
-                class="grey lighten-2"
-              />
+        <v-dialog v-model="dialog" width="800">
+          <template v-slot:activator="{ on, url }">
+            <div
+              class="w-100 d-flex justify-center"
+              v-bind="url"
+              v-on="on"
+              @click="handleClick(img)"
+            >
+              <img :id="img" :src="img" aspect-ratio="1" />
             </div>
           </template>
-          <v-card class="d-flex align-center">
+          <v-card class="d-flex align-center m-10">
             <img :src="dialogImg" alt="" />
           </v-card>
         </v-dialog>
@@ -39,20 +39,16 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col class="px-1" v-for="(img, i) in urlstall" :key="i">
+      <v-col cols="4" class="px-6" v-for="(img, i) in urlstall" :key="i">
         <v-dialog fullscreen dark v-model="dialog">
           <template v-slot:activator="{ on, attrs }">
-            <div v-bind="attrs" v-on="on" @click="handleClick(img)">
-              <div
-                class="bg-cover bg-no-repeat bg-center"
-                :style="{
-                  'background-image': 'url(' + img + ')',
-                  width: '100%',
-                  height: '600px',
-                }"
-              >
-                <!-- <img :src="img" alt="" /> -->
-              </div>
+            <div class="" v-bind="attrs" v-on="on" @click="handleClick(img)">
+              <v-img
+                class="mx-auto"
+                :src="img"
+                height="800px"
+                width="200px"
+              ></v-img>
             </div>
           </template>
           <v-card>
@@ -96,7 +92,7 @@ export default {
         "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT055N737L31.jpg?alt=media&token=ea9c14d0-aab0-4db2-96c5-6ffe19039d68",
         "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT007N709L33.jpg?alt=media&token=896b0b98-1ffb-40cd-9581-1312d5ac4fde",
         "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT031N697L46.jpg?alt=media&token=8897cbf7-af3c-4168-acde-489c044acba1",
-        "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT032N704L35.jpg?alt=media&token=6269b9fb-7eea-426e-aa54-7f67a990f55a",
+        // "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT032N704L35.jpg?alt=media&token=6269b9fb-7eea-426e-aa54-7f67a990f55a",
         "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT051N6597L38.jpg?alt=media&token=c1093263-7e2f-4c8c-aef4-3ea2fe627484",
         "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT052N660L34.jpg?alt=media&token=bb95c2ed-0dea-41a7-80e7-56f3557f4a98",
         "https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/tables%2FT054N668L34.jpg?alt=media&token=e4448d89-8e9c-4967-84a7-966c461e8a19",

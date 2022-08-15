@@ -1,10 +1,20 @@
 <template>
   <v-row>
-    <v-col v-for="img in urlArr" :key="img" class="d-flex child-flex" cols="4">
-      <v-dialog dark v-model="dialog" width="100vw">
+    <v-col
+      v-for="img in urlArr"
+      :key="img"
+      class="d-flex child-flex col-6 col-md-4"
+    >
+      <v-dialog dark v-model="dialog" fullscreen>
         <template v-slot:activator="{ on, attrs }">
           <div v-bind="attrs" v-on="on" @click="handleClick(img)">
-            <v-img :id="img" :src="img" aspect-ratio="1" class="grey lighten-2">
+            <v-img
+              :id="img"
+              contain
+              :src="img"
+              aspect-ratio="1"
+              class="grey lighten-2"
+            >
               <template v-slot:placeholder>
                 <v-row class="fill-height ma-0" align="center" justify="center">
                   <v-progress-circular

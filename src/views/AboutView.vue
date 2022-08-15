@@ -6,7 +6,7 @@
           <span class="oswald">Claudio Rodríguez</span>
         </h2>
       </div>
-      <div class="d-flex">
+      <div class="d-md-flex">
         <div class="px-5 picture-container h-auto mb-4">
           <div id="aboutPicture" class="shadow-lg"></div>
         </div>
@@ -22,6 +22,13 @@
             de su ingreso se hace acreedor de una beca de estudios por su
             rendimiento y capacidad creadora.
           </p>
+          <div class="d-flex d-md-none justify-center pb-7">
+            <v-img
+              contain
+              height="400px"
+              src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/aboutPic.png?alt=media&token=8552eb3a-c51c-4493-a983-592a3216925f"
+            />
+          </div>
           <p>
             Seguidamente continua sus estudios como becario en el Instituto
             Superior de Arte de La Habana. Entre las exposiciones individuales
@@ -71,7 +78,7 @@
         se presenta en Bogotá, Colombia: Imagen de Don Andrés Bello. Secretaría
         Ejecutiva del Convenio Andrés Bello.
       </p>
-      <div class="d-flex me-4">
+      <div class="d-md-flex me-4">
         <div>
           <p>
             El Mirar de la Mirada, 1996, y Re-Figuraciones, 1998, tienen lugar
@@ -99,6 +106,13 @@
         >
           <div id="secondAbout"></div>
         </div>
+      </div>
+      <div class="d-flex d-md-none justify-center pb-7">
+        <v-img
+          contain
+          height="400px"
+          src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/figuratives%2FFFH610.jpg?alt=media&token=2f65cc3e-b061-4dac-a7f8-1a1c291a94e1"
+        />
       </div>
       <p>
         En sus primeros años de actividad artística Claudio Rodríguez estuvo muy
@@ -134,7 +148,7 @@ p {
   line-height: 2rem;
 }
 #aboutPicture {
-  width: 12vw;
+  width: 150px;
   height: 100%;
   background-image: url("https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/aboutPic.png?alt=media&token=8552eb3a-c51c-4493-a983-592a3216925f");
   background-size: cover;
@@ -144,11 +158,11 @@ p {
   display: block;
 }
 #secondAbout {
-  background-image: url("https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/abouteSecond.png?alt=media&token=a6b3c45f-377b-444a-9fa5-cd22077fbb73");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/figuratives%2FFFH610.jpg?alt=media&token=2f65cc3e-b061-4dac-a7f8-1a1c291a94e1");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 300px;
   height: 100%;
 }
 </style>
