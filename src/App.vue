@@ -104,8 +104,8 @@
       "
       id="app-bar"
     >
-      <v-toolbar-title class="font-oswald text-2xl font-semibold"
-        >CR.</v-toolbar-title
+      <v-toolbar-title class="font-oswald text-3xl font-semibold"
+        >CR</v-toolbar-title
       >
       <v-app-bar-nav-icon
         @click="drawer = !drawer"

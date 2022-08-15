@@ -1,15 +1,18 @@
 <template>
   <div>
     <v-row id="presentation" :align="'center'" justify="center">
-      <h1 class="pb-5 display-2 white--text">
+      <h1 class="pb-5 display-2 white--text text-center">
         <span class="oswald text-7xl">Claudio Rodríguez</span>
       </h1>
     </v-row>
     <v-row class="big">
-      <v-col cols="6" class="d-flex items-center justify-end">
-        <div>
+      <v-col
+        class="col-12 col-lg-6 d-flex items-center justify-center justify-lg-end"
+      >
+        <div class="my-10">
           <v-img
-            width="25vw"
+            width="45vw"
+            min-width="300px"
             src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/first.png?alt=media&token=e8ac4ab1-59fa-48fa-84cf-3200f725a62b"
             class="elevation-10"
           >
@@ -23,22 +26,27 @@
           ></v-img>
         </div>
       </v-col>
-      <v-col cols="6" class="d-flex items-center justify-start">
-        <p class="pe-13 me-15 w-3/4">
-          <!-- eslint-disable-next-line -->
-          Para Claudio Rodríguez, la pintura deviene en actividad sanadora, en
-          una terapéutica que, a la manera del psicoanálisis, busca en el
-          inconsciente el origen de la pérdida del objeto.
-          <br />
-          <em class="font-italic"
-            >“Cada cuadro que hago es la investigación de mí mismo, es un
-            conocimiento profundo del yo, es un sentimiento y un pensamiento
-            profundo y doloroso de nosotros mismos, yo mismo yo.”</em
-          >
-        </p>
+      <v-col
+        class="col-12 col-lg-6 d-flex items-center justify-center justify-lg-start"
+      >
+        <div class="pb-10 pe-md-13 me-lg-15 w-3/4 text-center text-lg-left">
+          <p>
+            <!-- eslint-disable-next-line -->
+            Para Claudio Rodríguez, la pintura deviene en actividad sanadora, en
+            una terapéutica que, a la manera del psicoanálisis, busca en el
+            inconsciente el origen de la pérdida del objeto. (Ruth Auerbach)
+          </p>
+          <p>
+            <em class="font-italic">
+              “Cada cuadro que hago es la investigación de mí mismo, es un
+              conocimiento profundo del yo, es un sentimiento y un pensamiento
+              profundo y doloroso de nosotros mismos, yo mismo yo.”</em
+            >
+          </p>
+        </div>
       </v-col>
     </v-row>
-    <v-row class="bg-darkgrey">
+    <!-- <v-row class="bg-darkgrey">
       <div class="w-1/2">
         <v-carousel cycle hide-delimiter-background show-arrows-on-hover>
           <v-carousel-item v-for="(slide, i) in figSample" :key="i">
@@ -49,7 +57,7 @@
       <v-col>Figurativos</v-col>
       <v-col>No Figurativos</v-col>
       <v-col>Tablitas</v-col>
-    </v-row>
+    </v-row> -->
   </div>
 </template>
 
@@ -74,7 +82,13 @@ export default {
   margin-top: -48px;
   font-family: "Oswald", sans-serif;
 }
+@media (max-width: 600px) {
+  #presentation {
+    background-size: 650px;
+    background-position-y: -100px;
+  }
+}
 .big {
-  height: 60vh;
+  min-height: 60vh;
 }
 </style>
