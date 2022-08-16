@@ -14,49 +14,59 @@
           los 54 centímetros.
         </p>
       </v-col>
+      <v-dialog v-model="dialog" dark width="100%" heigth="100%" fullscreen>
+        <v-btn icon dark @click="dialog = false" class="absolute right-0 z-20">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+        <v-card class="d-flex align-center">
+          <v-img
+            :src="dialogImg"
+            alt=""
+            contain
+            max-height="95vh"
+            max-width="95vw"
+            class="mx-auto"
+            ><template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="grey lighten-5"
+                ></v-progress-circular>
+              </v-row> </template
+          ></v-img>
+        </v-card>
+      </v-dialog>
       <v-col
         v-for="(img, i) in urls"
         :key="i"
         class="d-flex child-flex my-5"
         cols="12"
       >
-        <v-dialog v-model="dialog" width="800">
-          <template v-slot:activator="{ on, url }">
-            <div
-              class="w-100 d-flex justify-center"
-              v-bind="url"
-              v-on="on"
-              @click="handleClick(img)"
-            >
-              <img :id="img" :src="img" aspect-ratio="1" />
-            </div>
-          </template>
-          <v-card class="d-flex align-center m-10">
-            <img :src="dialogImg" alt="" />
-          </v-card>
-        </v-dialog>
+        <div class="w-100 d-flex justify-center" @click="handleClick(img)">
+          <v-img contain :id="img" :src="img"
+            ><template v-slot:placeholder>
+              <v-progress-circular
+                indeterminate
+                color="grey lighten-5"
+              ></v-progress-circular> </template
+          ></v-img>
+        </div>
         <!-- <img :id="img" :src="img" aspect-ratio="1" class="grey lighten-2" /> -->
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="4" class="px-6" v-for="(img, i) in urlstall" :key="i">
-        <v-dialog fullscreen dark v-model="dialog">
-          <template v-slot:activator="{ on, attrs }">
-            <div class="" v-bind="attrs" v-on="on" @click="handleClick(img)">
-              <v-img
-                class="mx-auto"
-                :src="img"
-                height="800px"
-                width="200px"
-              ></v-img>
-            </div>
-          </template>
-          <v-card>
-            <div class="py-10">
-              <v-img contain :src="dialogImg" max-height="90vh"></v-img>
-            </div>
-          </v-card>
-        </v-dialog>
+        <div class="" @click="handleClick(img)">
+          <v-img class="mx-auto" :src="img" height="800px" width="200px">
+            <template v-slot:placeholder>
+              <v-row class="fill-height ma-0" align="center" justify="center">
+                <v-progress-circular
+                  indeterminate
+                  color="grey lighten-5"
+                ></v-progress-circular>
+              </v-row> </template
+          ></v-img>
+        </div>
       </v-col>
     </v-row>
   </v-container>
@@ -104,6 +114,7 @@ export default {
   methods: {
     handleClick(img) {
       this.dialogImg = img;
+      this.dialog = true;
     },
   },
   computed: {
