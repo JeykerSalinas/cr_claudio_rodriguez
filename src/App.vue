@@ -2,82 +2,155 @@
   <v-app id="inspire" v-scroll="onScroll">
     <v-navigation-drawer class="bg-dark-grey" dark v-model="drawer" app right>
       <v-list dense>
-        <v-subheader>REPORTS</v-subheader>
+        <v-subheader
+          ><span class="oswald text-3xl">Claudio Rodríguez</span></v-subheader
+        >
         <v-list-item-group v-model="selectedItem" color="primary">
-          <v-list-item v-for="(item, i) in items" :key="i">
+          <v-list-item to="/">
             <v-list-item-icon>
-              <v-icon v-text="item.icon"></v-icon>
+              <v-icon v-text="'mdi-home'"></v-icon>
             </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.text"></v-list-item-title>
-            </v-list-item-content>
+            <v-list-item-content prepend-icon="mdi-home"
+              ><v-list-item-title v-text="'Home'"></v-list-item-title
+            ></v-list-item-content>
           </v-list-item>
+          <v-list-item to="/about">
+            <v-list-item-icon>
+              <v-icon v-text="'mdi-account'"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content
+              ><v-list-item-title v-text="'Sobre Claudio'"></v-list-item-title
+            ></v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/reviews">
+            <v-list-item-icon>
+              <v-icon v-text="'mdi-newspaper'"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content
+              ><v-list-item-title v-text="'Reseñas'"></v-list-item-title
+            ></v-list-item-content>
+          </v-list-item>
+          <v-list-item to="/collections">
+            <v-list-item-icon>
+              <v-icon v-text="'mdi-domain'"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content
+              ><v-list-item-title v-text="'Colecciones'"></v-list-item-title
+            ></v-list-item-content>
+          </v-list-item>
+          <v-list-group prepend-icon="mdi-book" no-action dark>
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title>Galerías de pinturas</v-list-item-title>
+              </v-list-item-content>
+            </template>
+            <v-list-item to="/galery/tables">
+              <v-list-item-content>
+                <v-list-item-title v-text="'Tablitas'"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item to="/galery/figuratives">
+              <v-list-item-content>
+                <v-list-item-title v-text="'Figurativos'"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item to="/galery/nofiguratives">
+              <v-list-item-content>
+                <v-list-item-title
+                  v-text="'No Figurativos'"
+                ></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
+          <v-list-group prepend-icon="mdi-book" no-action dark>
+            <template v-slot:activator>
+              <v-list-item-content>
+                <v-list-item-title>Catálogos y libros</v-list-item-title>
+              </v-list-item-content>
+            </template>
+
+            <v-list-item
+              v-for="(child, i) in $store.state.catalogs"
+              :key="i"
+              :to="'/catalogs/' + child.name"
+            >
+              <v-list-item-content>
+                <v-list-item-title v-text="child.name"></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-group>
         </v-list-item-group>
+        <v-list-item to="/contact">
+          <v-list-item-icon>
+            <v-icon v-text="'mdi-message-text'"></v-icon>
+          </v-list-item-icon>
+          <v-list-item-content
+            ><v-list-item-title v-text="'Contacto'"></v-list-item-title
+          ></v-list-item-content>
+        </v-list-item>
       </v-list>
+      <v-list dense> </v-list>
     </v-navigation-drawer>
 
     <v-app-bar
       app
-      dense
       fixed
       :dark="true"
-      :color="transparentNav < 350 ? 'transparent' : 'dark-grey'"
+      :color="
+        transparentNav < 350 && $route.name === 'home'
+          ? 'transparent'
+          : 'dark-grey'
+      "
       id="app-bar"
     >
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title class="font-oswald text-2xl font-semibold"
-        >CR.</v-toolbar-title
+      <v-toolbar-title class="font-oswald text-4xl font-semibold"
+        >CR</v-toolbar-title
       >
+      <v-app-bar-nav-icon @click="drawer = !drawer" class="ms-auto">
+        <v-icon v-text="'mdi-menu'" size="40"></v-icon>
+      </v-app-bar-nav-icon>
     </v-app-bar>
 
-    <v-main class="bg-colortest pt-0">
-      <v-container align-center fluid class="">
-        <v-row id="presentation" class="" :align="'center'" justify="center">
-          <h1 class="pb-5 display-2 white--text">
-            <span class="oswald text-7xl">Claudio Rodríguez</span>
-          </h1>
-        </v-row>
-        <v-row class="big"> </v-row>
-      </v-container>
+    <v-main class="bg-softwhite pt-12">
+      <router-view></router-view>
     </v-main>
+    <v-footer dense dark color="darkgrey" elevation="21" class="py-0">
+      <v-card dense tile width="100%" class="text-center">
+        <v-card-text class="py-0">
+          <v-btn class="" icon href="https://www.instagram.com/claudiomerida/">
+            <v-icon size="18px"> mdi-instagram </v-icon>
+          </v-btn>
+          <v-btn class="" icon to="/contact">
+            <v-icon size="18px"> mdi-email </v-icon>
+          </v-btn>
+        </v-card-text>
+      </v-card>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   data: () => ({
     drawer: false,
     selectedItem: 1,
-    items: [
-      { text: "Real-Time", icon: "mdi-clock" },
-      { text: "Audience", icon: "mdi-account" },
-      { text: "Conversions", icon: "mdi-flag" },
-    ],
     transparentNav: 0,
   }),
   methods: {
     onScroll() {
-      console.log(window.scrollY);
       this.transparentNav = window.scrollY;
     },
+    ...mapActions(["getMetaData", "listAllCatalogs", "getGallery"]),
+  },
+  created() {
+    this.getMetaData();
+    this.listAllCatalogs();
+    this.getGallery();
   },
 };
 </script>
 <style scoped>
-#presentation {
-  background: url("https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/hero.jpg?alt=media&token=d50761af-08ac-4aa2-bd75-0376f3a44a6c");
-  background-position-y: -450px;
-  background-position-x: center;
-  background-repeat: no-repeat;
-  background-size: 2000px;
-  height: 550px; /*borrar despues*/
-  margin-top: -48px;
-  font-family: "Oswald", sans-serif;
-}
-.big {
-  height: 300vh;
-}
 #app-bar {
   transition: all 0.6s ease-in-out;
 }
