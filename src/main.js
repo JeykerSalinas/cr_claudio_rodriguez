@@ -9,7 +9,7 @@ import "@/assets/main.scss";
 
 Vue.config.productionTip = false;
 Vue.use(VueGtag, {
-  config: { id: "328440093" }
+  config: { id: "328440093" },
 });
 new Vue({
   router,
