@@ -7,30 +7,54 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import ImageGallery from "@/components/ImageGallery.vue";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
+import { storage } from "@/firebaseconfig";
+import { mapState } from "vuex";
 export default {
   name: "CatalogsView",
+  components: { ImageGallery },
   data() {
     return {
       dialog: false,
       dialogImg: "",
+      currCatalog: { url: [] },
     };
   },
   methods: {
     handleClick(url) {
       this.dialogImg = url;
     },
-  },
-  computed: {
-    ...mapGetters(["getCatalogsUrls"]),
-    currCatalog() {
-      return this.getCatalogsUrls?.find(
+    getCatalogsUrls() {
+      const catalog = this.catalogs.find(
         (catalog) => catalog.name === this.$route.params.id
       );
+      if (catalog.path) {
+        const listRef = ref(storage, "/" + catalog.path);
+        listAll(listRef)
+          .then((references) => {
+            catalog.url = [];
+            references.items.map((itemRef) => {
+              getDownloadURL(ref(storage, itemRef._location.path))
+                .then((url) => {
+                  catalog.url.push(url);
+                })
+                .catch((error) => {
+                  console.log(error);
+                });
+            });
+          })
+          .catch((err) => console.log(err));
+      }
+      this.currCatalog = catalog;
     },
   },
-  components: { ImageGallery },
+  computed: {
+    ...mapState(["catalogs"]),
+  },
+  created() {
+    this.getCatalogsUrls();
+  },
 };
 </script>
 

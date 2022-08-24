@@ -33,28 +33,7 @@ export default new Vuex.Store({
       state.galery[payload.index].url.push(payload.res);
     },
   },
-  getters: {
-    getCatalogsUrls: (state) => {
-      state.catalogs.forEach((catalog) => {
-        if (catalog.path) {
-          const listRef = ref(storage, "/" + catalog.path);
-          listAll(listRef)
-            .then((res) => {
-              catalog.url = [];
-              res.items.map((itemRef) => {
-                getDownloadURL(ref(storage, itemRef._location.path))
-                  .then((res) => {
-                    catalog.url.push(res);
-                  })
-                  .catch((err) => console.log(err));
-              });
-            })
-            .catch((err) => console.log(err));
-        }
-      });
-      return state.catalogs;
-    },
-  },
+  getters: {},
   actions: {
     async getMetaData({ commit }) {
       const listRef = ref(storage, "/reviews");
