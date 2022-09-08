@@ -30,6 +30,7 @@
           </li>
         </ul>
         <ul>
+          <li>Patricia Phelps de Cisneros</li>
           <li>Cecilia Fajardo Hill</li>
           <li>Susana Amundaraín</li>
           <li>Milagros Bello</li>

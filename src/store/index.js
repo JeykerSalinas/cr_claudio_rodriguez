@@ -4,6 +4,25 @@ import { ref, listAll, getDownloadURL } from "firebase/storage";
 import { storage } from "@/firebaseconfig";
 Vue.use(Vuex);
 
+const getUrls = (url) => {
+  const urlArr = [];
+  const listRef = ref(storage, "/" + url);
+  listAll(listRef)
+    .then((references) => {
+      references.items.map((itemRef) => {
+        getDownloadURL(ref(storage, itemRef._location.path))
+          .then((url) => {
+            urlArr.push(url);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      });
+    })
+    .catch((err) => console.log(err));
+  return urlArr;
+};
+
 export default new Vuex.Store({
   state: {
     reviews: [],
@@ -59,6 +78,7 @@ export default new Vuex.Store({
             let myObj = {};
             myObj.name = item.name;
             myObj.path = item.fullPath;
+            myObj.urls = getUrls(item.fullPath);
             return myObj;
           });
 
