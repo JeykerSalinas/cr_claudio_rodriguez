@@ -1,7 +1,7 @@
 <template>
-  <v-container class="px-20 mt-15">
+  <v-container class="px-md-0 px-lg-20 mt-15">
     <v-row>
-      <v-col>
+      <v-col class="px-0">
         <p class="oswald text-6xl text-semibold">Tablitas</p>
         <p class="oswald text-xl text-semibold">
           Claudio ha pintado sobre los más variados soportes. Papel, lienzo,
