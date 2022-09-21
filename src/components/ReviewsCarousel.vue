@@ -27,7 +27,7 @@
         </v-dialog>
       </v-row>
     </v-container>
-    <v-slide-group v-model="model" mandatory class="pa-4" show-arrows>
+    <v-slide-group v-model="model" mandatory class="pa-0 pa-md-4" show-arrows>
       <v-slide-item
         v-for="(review, n) in reviews"
         :key="n"
@@ -35,9 +35,9 @@
       >
         <v-card
           :color="active ? 'primary' : 'grey lighten-1'"
-          class="ma-4"
-          height="250"
-          width="200"
+          class="ma-2 ma-md-4"
+          width="20vw"
+          max-width="200px"
           @click="toggle(n)"
         >
           <v-img height="100%" class="rounded" :src="review"
@@ -89,3 +89,4 @@ export default {
   },
 };
 </script>
+<style scoped></style>

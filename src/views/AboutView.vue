@@ -1,5 +1,5 @@
 <template>
-  <div id="about" class="light-bg pt-5 pa-15">
+  <v-container class="light-bg pt-5">
     <div class="container mt-1 p-5">
       <div>
         <h2 class="display-4 py-10 text-end pb-3">
@@ -100,10 +100,7 @@
             Ayacucho.
           </p>
         </div>
-        <div
-          class="text-center d-flex align-items-center pb-4 ms-4"
-          style="width: 200%"
-        >
+        <div class="text-center d-flex align-items-center pb-4 ms-4">
           <div id="secondAbout"></div>
         </div>
       </div>
@@ -134,7 +131,7 @@
         papel, hasta que retoma el óleo, con quien continúa de la mano.
       </p>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script>

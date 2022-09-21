@@ -78,12 +78,13 @@ export default {
   background-position-x: center;
   background-repeat: no-repeat;
   background-size: 2000px;
-  height: 40vh; /*borrar despues*/
+  height: 400px; /*borrar despues*/
   margin-top: -48px;
   font-family: "Oswald", sans-serif;
 }
 @media (max-width: 600px) {
   #presentation {
+    height: 400px;
     background-size: 650px;
     background-position-y: -100px;
   }
