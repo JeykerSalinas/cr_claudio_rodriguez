@@ -144,6 +144,7 @@ export default {
     ...mapActions(["getMetaData", "listAllCatalogs", "getGallery"]),
   },
   created() {
+    document.title = "Claudio Mérida";
     this.getMetaData();
     this.listAllCatalogs();
     this.getGallery();

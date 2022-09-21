@@ -1,7 +1,7 @@
 <template>
-  <v-container class="px-md-0 px-lg-20 mt-15">
+  <v-container class="px-10 mt-15">
     <v-row>
-      <v-col class="px-0">
+      <v-col class="">
         <p class="oswald text-6xl text-semibold">Tablitas</p>
         <p class="oswald text-xl text-semibold">
           Claudio ha pintado sobre los más variados soportes. Papel, lienzo,
@@ -39,7 +39,7 @@
       <v-col
         v-for="(img, i) in urls"
         :key="i"
-        class="d-flex child-flex my-5"
+        class="d-flex child-flex my-md-10"
         cols="12"
       >
         <div class="w-100 d-flex justify-center" @click="handleClick(img)">

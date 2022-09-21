@@ -1,5 +1,5 @@
 <template>
-  <v-container id="catalogs" class="px-20">
+  <v-container id="catalogs" class="">
     <p class="oswald text-6xl text-semibold">
       {{ currCatalog?.name }}
     </p>
