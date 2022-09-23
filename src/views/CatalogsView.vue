@@ -25,7 +25,7 @@ export default {
       this.dialogImg = url;
     },
     sortCatalog(cat) {
-      cat.sort(
+      cat?.sort(
         (a, b) =>
           Number(a.split(".")[4].slice(a.split(".")[4].length - 2)) -
           Number(b.split(".")[4].slice(a.split(".")[4].length - 2))
