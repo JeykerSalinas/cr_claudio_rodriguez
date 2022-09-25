@@ -79,6 +79,15 @@ const routes = [
         /* webpackChunkName: "Colections" */ "../views/CollectionsView.vue"
       ),
   },
+  {
+    path: "/contact",
+    name: "contac",
+    // route level code-splitting
+    // this generates a separate chunk (catalogs.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () =>
+      import(/* webpackChunkName: "Colections" */ "../views/ContactView.vue"),
+  },
 ];
 
 const router = new VueRouter({
