@@ -3,7 +3,9 @@
     <v-navigation-drawer class="bg-dark-grey" dark v-model="drawer" app right>
       <v-list dense>
         <v-subheader
-          ><span class="oswald text-3xl">Claudio Rodríguez</span></v-subheader
+          ><span class="oswald text-3xl claudio" @click="$router.push('/')"
+            >Claudio Rodríguez</span
+          ></v-subheader
         >
         <v-list-item-group v-model="selectedItem" color="primary">
           <v-list-item to="/">
@@ -154,5 +156,9 @@ export default {
 <style scoped>
 #app-bar {
   transition: all 0.6s ease-in-out;
+}
+.claudio:hover {
+  cursor: pointer;
+  color: white;
 }
 </style>
