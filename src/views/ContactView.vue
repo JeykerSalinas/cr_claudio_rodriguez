@@ -6,7 +6,7 @@
     <v-form ref="form" class="pa-4" v-model="valid" lazy-validation>
       <v-text-field
         v-model="name"
-        :counter="10"
+        :counter="100"
         :rules="nameRules"
         label="Nombre"
         required
@@ -51,7 +51,7 @@ export default {
     messageRules: [(v) => !!v || "Mensaje inváldo"],
     nameRules: [
       (v) => !!v || "Nombre obligatorio",
-      (v) => (v && v.length <= 10) || "Máximo 10 caracteres",
+      (v) => (v && v.length <= 100) || "Máximo 10 caracteres",
     ],
     emailRules: [
       (v) => !!v || "Correo es obligatorio",

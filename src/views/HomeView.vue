@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="container">
-      <div class="title my-15"></div>
+      <div class="title my-15 fadein"></div>
       <div class="d-flex flex-column-reverse flex-md-row">
         <div class="image">
           <v-img
@@ -25,9 +25,9 @@
             </template>
           </v-img>
         </div>
-        <div class="mx-md-10 texto d-flex flex-column">
-          <p>
-            <em class="font-italic text-xl">
+        <div class="mx-md-10 texto fadein d-flex flex-column">
+          <p class="">
+            <em class="font-italic">
               “Cada cuadro que hago es la investigación de mí mismo, es un
               conocimiento profundo del yo, es un sentimiento y un pensamiento
               profundo y doloroso de nosotros mismos, yo mismo yo.”</em
@@ -37,6 +37,7 @@
             <v-btn
               class="bg-dark-grey mt-3 mx-auto"
               dark
+              small
               elevation="2"
               @click="$router.push('/about')"
               >Sobre claudio</v-btn
@@ -92,6 +93,11 @@ export default {
 
 .container {
   max-width: 60vw;
+  @media (max-width: 580px) {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   .title {
     border-bottom: 1px solid rgb(201, 199, 199);
   }
