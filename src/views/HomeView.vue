@@ -8,23 +8,9 @@
       </div>
     </div>
     <div class="container">
-      <div class="title mb-20">
-        <h1
-          class="oswald text-5xl text-center mt-20 mb-10"
-          style="text-decoration: underline"
-        >
-          Artista plástico Venezolano
-        </h1>
-
-        <p class="text-xl font-light text-center my-10">
-          <!-- eslint-disable-next-line -->
-          Para Claudio Rodríguez, la pintura deviene en actividad sanadora, en
-          una terapéutica que, a la manera del psicoanálisis, busca en el
-          inconsciente el origen de la pérdida del objeto. (Ruth Auerbach)
-        </p>
-      </div>
-      <div class="d-flex mb-20">
-        <div class="bg-indigo-500 w-1/2">
+      <div class="title my-15"></div>
+      <div class="d-flex flex-column-reverse flex-md-row">
+        <div class="image">
           <v-img
             src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/figuratives%2FFFR215.jpg?alt=media&token=a6cdc797-45a0-4cc1-b3d5-8df05d14d5c2"
             class="elevation-10 fadein"
@@ -39,7 +25,7 @@
             </template>
           </v-img>
         </div>
-        <div class="ms-10 w-1/2">
+        <div class="mx-md-10 texto d-flex flex-column">
           <p>
             <em class="font-italic text-xl">
               “Cada cuadro que hago es la investigación de mí mismo, es un
@@ -47,7 +33,7 @@
               profundo y doloroso de nosotros mismos, yo mismo yo.”</em
             >
           </p>
-          <div class="d-flex jsutify-contetn-center">
+          <div class="">
             <v-btn
               class="bg-dark-grey mt-3 mx-auto"
               dark
@@ -58,6 +44,7 @@
           </div>
         </div>
       </div>
+      <div class="title my-15"></div>
     </div>
   </div>
 </template>
@@ -102,10 +89,29 @@ export default {
 .big {
   min-height: 60vh;
 }
+
 .container {
   max-width: 60vw;
   .title {
     border-bottom: 1px solid rgb(201, 199, 199);
+  }
+  .image {
+    width: 50%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    @media (max-width: 960px) {
+      width: 100%;
+    }
+  }
+  .texto {
+    justify-content: center;
+    width: 50%;
+    @media (max-width: 960px) {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
   }
 }
 </style>
