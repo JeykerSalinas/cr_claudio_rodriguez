@@ -75,7 +75,7 @@ export default {
   align-items: center;
 }
 .title-box {
-  max-height: 180px;
+  max-height: 220px;
 }
 @media (max-width: 600px) {
   #presentation {
