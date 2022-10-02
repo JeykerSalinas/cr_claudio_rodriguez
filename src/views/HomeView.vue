@@ -1,20 +1,19 @@
 <template>
   <div>
-    <v-row id="presentation" :align="'center'" justify="center">
-      <h1 class="pb-5 display-2 white--text text-center">
-        <span class="oswald text-7xl">Claudio Rodríguez</span>
-      </h1>
-    </v-row>
-    <v-row class="big">
-      <v-col
-        class="col-12 col-lg-6 d-flex items-center justify-center justify-lg-end"
-      >
-        <div class="my-10">
+    <div id="presentation" :align="'center'" justify="center" class="fadein">
+      <div class="overflow-hidden title-box">
+        <h1 class="pb-5 display-2 white--text text-center fadein fadefont">
+          <span class="oswald text-8xl">Claudio Rodríguez</span>
+        </h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="title my-15 fadein"></div>
+      <div class="d-flex flex-column-reverse flex-md-row">
+        <div class="image">
           <v-img
-            width="45vw"
-            min-width="300px"
-            src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/first.png?alt=media&token=e8ac4ab1-59fa-48fa-84cf-3200f725a62b"
-            class="elevation-10"
+            src="https://firebasestorage.googleapis.com/v0/b/claudio-rodriguez.appspot.com/o/figuratives%2FFFR215.jpg?alt=media&token=a6cdc797-45a0-4cc1-b3d5-8df05d14d5c2"
+            class="elevation-10 fadein"
           >
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
@@ -22,42 +21,32 @@
                   indeterminate
                   color="grey lighten-5"
                 ></v-progress-circular>
-              </v-row> </template
-          ></v-img>
+              </v-row>
+            </template>
+          </v-img>
         </div>
-      </v-col>
-      <v-col
-        class="col-12 col-lg-6 d-flex items-center justify-center justify-lg-start"
-      >
-        <div class="pb-10 pe-md-13 me-lg-15 w-3/4 text-center text-lg-left">
-          <p>
-            <!-- eslint-disable-next-line -->
-            Para Claudio Rodríguez, la pintura deviene en actividad sanadora, en
-            una terapéutica que, a la manera del psicoanálisis, busca en el
-            inconsciente el origen de la pérdida del objeto. (Ruth Auerbach)
-          </p>
-          <p>
+        <div class="mx-md-10 texto fadein d-flex flex-column">
+          <p class="">
             <em class="font-italic">
               “Cada cuadro que hago es la investigación de mí mismo, es un
               conocimiento profundo del yo, es un sentimiento y un pensamiento
               profundo y doloroso de nosotros mismos, yo mismo yo.”</em
             >
           </p>
+          <div class="">
+            <v-btn
+              class="bg-dark-grey mt-3 mx-auto"
+              dark
+              small
+              elevation="2"
+              @click="$router.push('/about')"
+              >Sobre claudio</v-btn
+            >
+          </div>
         </div>
-      </v-col>
-    </v-row>
-    <!-- <v-row class="bg-darkgrey">
-      <div class="w-1/2">
-        <v-carousel cycle hide-delimiter-background show-arrows-on-hover>
-          <v-carousel-item v-for="(slide, i) in figSample" :key="i">
-            <v-img :src="slide" contain></v-img>
-          </v-carousel-item>
-        </v-carousel>
       </div>
-      <v-col>Figurativos</v-col>
-      <v-col>No Figurativos</v-col>
-      <v-col>Tablitas</v-col>
-    </v-row> -->
+      <div class="title my-15"></div>
+    </div>
   </div>
 </template>
 
@@ -78,17 +67,57 @@ export default {
   background-position-x: center;
   background-repeat: no-repeat;
   background-size: 2000px;
-  height: 40vh; /*borrar despues*/
+  height: 400px; /*borrar despues*/
   margin-top: -48px;
   font-family: "Oswald", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title-box {
+  max-height: 220px;
 }
 @media (max-width: 600px) {
   #presentation {
+    height: 400px;
     background-size: 650px;
     background-position-y: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .big {
   min-height: 60vh;
+}
+
+.container {
+  max-width: 60vw;
+  @media (max-width: 580px) {
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .title {
+    border-bottom: 1px solid rgb(201, 199, 199);
+  }
+  .image {
+    width: 50%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    @media (max-width: 960px) {
+      width: 100%;
+    }
+  }
+  .texto {
+    justify-content: center;
+    width: 50%;
+    @media (max-width: 960px) {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  }
 }
 </style>

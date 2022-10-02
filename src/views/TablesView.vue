@@ -1,13 +1,13 @@
 <template>
-  <v-container class="px-20 mt-15">
+  <v-container class="px-10 mt-15">
     <v-row>
-      <v-col>
+      <v-col class="">
         <p class="oswald text-6xl text-semibold">Tablitas</p>
         <p class="oswald text-xl text-semibold">
           Claudio ha pintado sobre los más variados soportes. Papel, lienzo,
           yute, tela de cortinas, madera, vidrio, afiches, etc. La serie
           “Tablitas”, de la cual mostramos algunas, las pintó Claudio sobre
-          retazos de machimbrado que sobraron de la construcción del sobre techo
+          retazos de machimbrado que sobraron de la construcción del sobretecho
           del apartamento familiar, tal cual iba consiguiendo las tablitas, sin
           recortarlas ni haciéndole otra mejora. Todas de 8 centímetros de alto,
           pero de ancho distinto. En esta galería el ancho va desde los 27 hasta
@@ -39,7 +39,7 @@
       <v-col
         v-for="(img, i) in urls"
         :key="i"
-        class="d-flex child-flex my-5"
+        class="d-flex child-flex my-md-10"
         cols="12"
       >
         <div class="w-100 d-flex justify-center" @click="handleClick(img)">
@@ -57,7 +57,8 @@
     <v-row>
       <v-col cols="4" class="px-6" v-for="(img, i) in urlstall" :key="i">
         <div class="" @click="handleClick(img)">
-          <v-img class="mx-auto" :src="img" height="800px" width="200px">
+          <v-img class="mx-auto" :src="img">
+            <!-- height="800px" width="200px" -->
             <template v-slot:placeholder>
               <v-row class="fill-height ma-0" align="center" justify="center">
                 <v-progress-circular

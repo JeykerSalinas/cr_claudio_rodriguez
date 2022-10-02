@@ -1,5 +1,5 @@
 <template>
-  <v-container id="catalogs" class="px-20">
+  <v-container id="catalogs" class="">
     <p class="oswald text-6xl text-semibold">
       {{ currCatalog?.name }}
     </p>
@@ -24,11 +24,22 @@ export default {
     handleClick(url) {
       this.dialogImg = url;
     },
+    sortCatalog(cat) {
+      cat?.sort(
+        (a, b) =>
+          Number(a.split(".")[4].slice(a.split(".")[4].length - 2)) -
+          Number(b.split(".")[4].slice(a.split(".")[4].length - 2))
+      );
+    },
   },
   computed: {
     ...mapState(["catalogs"]),
     currCatalog() {
-      return this.catalogs.find((cat) => cat.name === this.$route.params.id);
+      let catalog = this.catalogs.find(
+        (cat) => cat.name === this.$route.params.id
+      );
+      this.sortCatalog(catalog?.urls);
+      return catalog;
     },
   },
 };

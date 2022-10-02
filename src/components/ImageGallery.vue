@@ -25,7 +25,7 @@
     <v-col
       v-for="(img, index) in urlArr"
       :key="index"
-      class="d-flex child-flex col-6 col-md-4"
+      class="d-flex child-flex col-12 col-sm-6 col-md-4"
     >
       <div @click="handleClick(img)">
         <v-img
